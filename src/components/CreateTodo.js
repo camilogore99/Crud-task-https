@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
-const CreateTodo = ( { setValueIputs, setDataUpdate } ) => {
+const CreateTodo = ( { setValueIputs, } ) => {
 
    const { register, handleSubmit, reset } = useForm()
 

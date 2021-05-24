@@ -33,7 +33,6 @@ const TodoContainer = () => {
    }, [userId])
 
    const updateCheck = (id, todo, bolean) => {
-      console.log(bolean);
       put(id, {...todo, isCompleted:bolean} )
    }
 
@@ -48,7 +47,6 @@ const TodoContainer = () => {
         updateCheck={updateCheck}
          />
    } )
-
 
    return (
       <div className="container">
