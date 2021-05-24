@@ -14,7 +14,6 @@ const TodoItem = ({ task, student, isCompleted, id, setUserId, updateCheck }) =>
    return (
       <div>
          <div className="mt-2 info-todo">
-            
             <table className="table table-dark table-striped">
                <thead>
                   <tr>
