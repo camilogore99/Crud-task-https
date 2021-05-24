@@ -1,12 +1,20 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
-const CreateTodo = ( { setValueIputs, } ) => {
+const CreateTodo = ( { setValueIputs, setDataUpdate } ) => {
 
    const { register, handleSubmit, reset } = useForm()
 
    const onSubmit = (value ) => {
-      setValueIputs(value);
+
+      const { student, task } = value
+
+      const data = {
+         student,
+         task,
+         isCompleted:false,
+      }
+      setValueIputs(data);
       reset()
    }
 

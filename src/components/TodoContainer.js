@@ -12,8 +12,11 @@ const TodoContainer = () => {
    const [valueIputs, setValueIputs] = useState(false);
    const [userId, setUserId] = useState(null);
    
+   
    useEffect(() => {
-      get().then( ( res ) => setDataUsers(res.data.todos.slice(0, res.data.todos.length))) 
+      get().then( ( res ) => {
+         setDataUsers(res.data.todos.slice(0, res.data.todos.length))
+      }) 
    }, [valueIputs, dataUsers])
 
    useEffect(() => {
@@ -22,11 +25,17 @@ const TodoContainer = () => {
          post(valueIputs)
       }
    }, [valueIputs])
+
    useEffect(() => {
       if (userId) {
          deleteApi( userId )
       }
    }, [userId])
+
+   const updateCheck = (id, todo, bolean) => {
+      console.log(bolean);
+      put(id, {...todo, isCompleted:bolean} )
+   }
 
    const list = dataUsers.map( ( value ) => {
       return <TodoItem 
@@ -35,17 +44,23 @@ const TodoContainer = () => {
         isCompleted={value.isCompleted} 
         key={value.id} 
         id={value.id} 
-        setUserId={setUserId} />
+        setUserId={setUserId}
+        updateCheck={updateCheck}
+         />
    } )
 
-   useEffect(() => {
-      put(userId).then( (res) => console.log(res) )
-   }, [userId])
 
    return (
-      <div>
-         <CreateTodo setValueIputs={setValueIputs} setUserId={setUserId} />
-         { dataUsers ? list : ''}
+      <div className="container">
+         <div className="title">
+            <h1>Crud https App</h1>
+         </div>
+         <div>
+            <div className="form">
+               <CreateTodo setValueIputs={setValueIputs} setUserId={setUserId}  />
+            </div>
+            { dataUsers ? list : ''}
+         </div>
       </div>
    )
 }
