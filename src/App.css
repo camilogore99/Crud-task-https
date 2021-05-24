@@ -8,3 +8,7 @@ body {
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.container-form {
+  display: flex;
+  justify-content: center;
+}

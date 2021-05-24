@@ -11,17 +11,27 @@ const CreateTodo = ( { setValueIputs, } ) => {
    }
 
    return (
-      <div>
+      <div className="container-form">
          <form onSubmit={handleSubmit(onSubmit)} >
             <div>
-               <label htmlFor="task" >Task </label>
-               <input type="text" id="task" { ...register('task') } />
+               <div>
+                  <label htmlFor="task" >Task </label>
+               </div>
+               <div>
+                  <input type="text" id="task" { ...register('task') } />
+               </div>
             </div>
             <div>
-               <label htmlFor="student" >Student </label>
-               <input type="text" id="student" {...register('student')}/>
+               <div>
+                  <label htmlFor="student" >Student </label>
+               </div>
+               <div>
+                  <input type="text" id="student" {...register('student')}/>
+               </div>
             </div>
-            <button>Crear</button>
+            <div className="row mt-3">
+              <button className="btn btn-primary">Crear</button> 
+            </div>
          </form>
       </div>
    )

@@ -4,6 +4,7 @@ import TodoItem from './TodoItem'
 import get from '../service/Get'
 import CreateTodo from './CreateTodo'
 import deleteApi from '../service/Delete'
+import put from '../service/Put'
 
 const TodoContainer = () => {
 
@@ -13,7 +14,7 @@ const TodoContainer = () => {
    
    useEffect(() => {
       get().then( ( res ) => setDataUsers(res.data.todos.slice(0, res.data.todos.length))) 
-   }, [valueIputs])
+   }, [valueIputs, dataUsers])
 
    useEffect(() => {
       if (valueIputs) {
@@ -36,6 +37,10 @@ const TodoContainer = () => {
         id={value.id} 
         setUserId={setUserId} />
    } )
+
+   useEffect(() => {
+      put(userId).then( (res) => console.log(res) )
+   }, [userId])
 
    return (
       <div>

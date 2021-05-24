@@ -3,8 +3,8 @@ import React from 'react'
 const TodoItem = ({ task, student, isCompleted, id, setUserId }) => {
    return (
       <div>
-         <div className="info-todo">
-            <table>
+         <div className="mt-2 info-todo">
+            <table className="table table-dark table-striped">
                <thead>
                   <tr>
                      <th>Student</th>
@@ -21,13 +21,13 @@ const TodoItem = ({ task, student, isCompleted, id, setUserId }) => {
                      <td>{task}</td>
                      <td>{isCompleted}true</td>
                      <td>
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked />
-                        <label class="form-check-label" for="flexSwitchCheckChecked">
-                        
-                        </label>
+                        <div className="form-check form-switch">
+                           <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked"  />
+                           <label className="form-check-label" htmlFor="flexSwitchCheckChecked"></label>
+                        </div>
                      </td>
-                     <td><button onClick={() => setUserId(id)}>Delete</button></td>
-                     <td><button onClick={() => console.log('vamos a actualizar')}>Update</button></td>
+                     <td><button className="btn btn-danger" onClick={() => setUserId(id)}>Delete</button></td>
+                     <td><button className="btn btn-warning" onClick={() => console.log('vamos a actualizar')}>Update</button></td>
                   </tr>
                </tbody>
             </table>
