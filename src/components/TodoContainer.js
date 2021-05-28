@@ -14,10 +14,13 @@ const TodoContainer = () => {
    
    
    useEffect(() => {
-      get().then( ( res ) => {
-         setDataUsers(res.data.todos.slice(0, res.data.todos.length))
-      }) 
-   }, [valueIputs, dataUsers])
+      if (valueIputs) {
+         get().then( ( res ) => {
+            setDataUsers(res.data.todos.slice(0, res.data.todos.length))
+            console.log('hola');
+         }) 
+      }
+   }, [valueIputs])
 
    useEffect(() => {
       if (valueIputs) {
